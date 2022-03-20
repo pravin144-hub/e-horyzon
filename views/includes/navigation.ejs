@@ -1,0 +1,147 @@
+<div class="backdrop"></div>
+<header class="main-header">
+    &nbsp;&nbsp;<i class="fab fa-black-tie logo-lap">&nbsp;<span style="font-size:24px;" id="logo" class="logo-lap">EMDC</span></i
+  >
+
+  <button id="side-menu-toggle"><i class="fas fa-bars"></i></button>
+    <br />
+    <br />
+    <br />
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <% if (isAuthenticated1) { %>
+                <li class="main-header__item" id="navs-link">
+                    <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+                </li>
+                <li class="main-header__item" id="navs-link1">
+                    <a class="<%= path === '/events' ? 'active' : '' %>" href="/events">Events</a
+        >
+      </li>
+      <li class="main-header__item" id="navs-link2">
+        <a class="<%= path === '/upcoming-events' ? 'active' : '' %>" href="/upcoming-events">
+          Upcoming Events</a
+        >
+      </li>
+      <% if(Admin) { %>
+        <li class="main-header__item" id="navs-link3">
+          <a class="<%= path === '/admin-panel' ? 'active' : '' %>" href="/admin-panel"
+            >Admin Panel</a
+          >
+        </li>
+      <% } else { %>
+        <li class="main-header__item" id="navs-link3">
+          <a class="<%= path === '/profile' ? 'active' : '' %>" href="/profile"
+            >Profile</a
+          >
+        </li>
+      <% } %>
+      
+      <% if (isAdmin) { %>
+      <li class="main-header__item">
+        <a
+          class="<%= path === '/admin/add-event' ? 'active' : '' %>"
+          href="/admin/add-event"
+          >Add Product
+        </a>
+                </li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/admin/events' ? 'active' : '' %>" href="/admin/events">Admin Products
+        </a>
+                </li>
+                <% } %>
+                    <% } %>
+                        <% if (!isAuthenticated1) { %>
+                            <li class="main-header__item" id="navs-link-pre">
+                                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+                            </li>
+                            <li class="main-header__item" id="navs-link-pre1">
+                                <a class="<%= path === '/events' ? 'active' : '' %>" href="/events">Events</a
+        >
+      </li>
+      <% } %>
+    </ul>
+    <ul class="main-header__item-list">
+      <% if (!isAuthenticated1) { %>
+      <li class="main-header__item">
+        <a class="<%= path === '/login' ? 'active' : '' %>" href="/login"
+          >Login</a
+        >
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"
+          >Signup</a
+        >
+      </li>
+      <% } else { %>
+      <li class="main-header__item">
+        <form action="/logout" method="post">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit">Logout</button>
+        </form>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</header>
+<!-- style="padding: 2%; background-color: red" -->
+<nav class="mobile-nav">
+  <ul class="mobile-nav__item-list">
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+                            </li>
+                            <li class="mobile-nav__item">
+                                <a class="<%= path === '/events' ? 'active' : '' %>" href="/events">Events</a
+      >
+    </li>
+    <% if (isAuthenticated1) { %>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/upcoming-events' ? 'active' : '' %>" href="/upcoming-events">Upcoming Events</a>
+                            </li>
+                            <% if(Admin) { %>
+                              <li class="mobile-nav__item" >
+                                <a class="<%= path === '/admin-panel' ? 'active' : '' %>" href="/admin-panel"
+                                  >Admin Panel</a
+                                >
+                              </li>
+                            <% } else { %>
+                              <li class="mobile-nav__item" >
+                                <a class="<%= path === '/profile' ? 'active' : '' %>" href="/profile"
+                                  >Profile</a
+                                >
+                              </li>
+                            <% } %>
+                            
+    <% if (isAdmin) { %>
+    <li class="mobile-nav__item">
+      <a
+        class="<%= path === '/admin/add-event' ? 'active' : '' %>"
+        href="/admin/add-event"
+        >Add Product
+      </a>
+                            </li>
+                            <li class="mobile-nav__item">
+                                <a class="<%= path === '/admin/events' ? 'active' : '' %>" href="/admin/events">Admin Products
+      </a>
+                            </li>
+                            <% } %>
+                                <% } %>
+                                    <% if (!isAuthenticated1) { %>
+                                        <li class="mobile-nav__item">
+                                            <a class="<%= path === '/login' ? 'active' : '' %>" href="/login">Login</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"
+        >Signup</a
+      >
+    </li>
+    <% } else { %>
+    <li class="mobile-nav__item">
+      <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit">Logout</button>
+      </form>
+    </li>
+    <% } %>
+  </ul>
+</nav>

@@ -1,0 +1,66 @@
+.orders {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.orders__item h1 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+@media only screen and (min-width: 500px) {
+    .orders__item {
+        width: 40% !important;
+        margin-left: 30%;
+    }
+}
+
+.orders__item {
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgb(179, 179, 179) !important;
+    color: black !important;
+    text-align: center;
+}
+
+.fa-bars {
+    margin-left: 850% !important;
+    font-size: 28px;
+    color: rgb(0, 255, 221) !important;
+}
+
+@media only screen and (max-width: 500px) {
+    #logo {
+        color: rgb(0, 255, 221);
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
+
+.fas {
+    color: rgb(0, 255, 221);
+    font-size: 28px;
+}
+
+.orders__products {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.orders__products-item {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+body {
+    color: rgba(255, 255, 255, 0.801);
+    background-color: rgba(0, 0, 0, 0.699);
+    font-family: "Source Sans Pro", sans-serif;
+    background-image: url(https://eskipaper.com/images/free-hd-background-2.jpg);
+    background-position: top !important;
+}

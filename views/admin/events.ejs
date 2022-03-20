@@ -1,0 +1,98 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" disabled="" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <% if (prods.length > 0) { %>
+                    <div class="grid">
+                        <% for (let product of prods) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                       
+                                        <div class="bdg">
+                                            <%= product.title %>
+                                        </div>
+                                       
+                                    </h1>
+                                </header>
+                                <div class="card__image">
+                                    <img src="/<%= product.imageUrl %>" alt="<%= product.title %>">
+                                </div>
+                                <div class="card__content">
+                               
+                                    <% if (product.status === "open") { %>
+                                        <p class="product__price">
+                                            <span style=" font-size: 1em;"  class="badge bg-success">Opened <i class="fas fa-check-circle" style="font-size:12px;color:white;"></i></span>
+                                        </p>
+                                    <% } %>
+                                   
+                                   
+                                    <% if (product.status == "close") { %>
+                                        <p class="product__price">
+                                            <span style=" font-size: 1em;"  class="badge bg-danger">Closed <i class="fas fa-lock" style="font-size:12px;color:white;"></i></span>
+                                        </p>
+                                    <% } %>
+                                    
+                                    <% if (product.status == "upcoming") { %>
+                                        <p class="product__price">
+                                           
+                                          <span  style=" font-size: 1em;" class="badge bg-primary">Upcoming <i class="fad fa-sparkles" style="font-size:12px;color:white;"></i></span>
+                                        </p>
+                                    <% } %>
+                                    
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="text-left">
+                                                <h5>REGISTERATION DATES</h5>
+                                                <p class="product__description" style="text-align: left;">
+                                                    <span style="font-weight:bold;">startdate : </span> <%= product.startdate %>
+                                                </p>
+                                                <p class="product__description" style="text-align: left;">
+                                                    <span style="font-weight:bold;">Enddate : </span> <%= product.enddate %>
+                                                    
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="text-right">
+                                                <h5>EVENT CO-ORDINATORS</h5>
+                                                <p class="product__description" style="text-align: left;">
+                                                    <span style="font-weight:bold;">1.<%= product.co_name1 %> : </span> <%= product.co_mobile1 %>
+                                                </p>
+                                                <p class="product__description" style="text-align: left;">
+                                                    <span style="font-weight:bold;">2.<%= product.co_name2 %> : </span> <%= product.co_mobile2 %>
+                                                    
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                </div>
+                                <div class="card__actions">
+                                    <a href="/admin/edit-event/<%= product._id %>?edit=true" class="button-29">Edit</a>
+                                    <form action="/delete-event" method="POST">
+                                        <input type="hidden" value="<%= product._id %>" name="productId">
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                        <button class="button-29" type="submit" onclick="deleteProduct(this)">Delete</button>
+                                    </form>
+
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1  style="text-align: center;margin-top:3%">No Events Found!</h1>
+                        <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>
+                <script src="/js/admin.js"></script>

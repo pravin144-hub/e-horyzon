@@ -1,0 +1,13 @@
+<form action="/register" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <input type="hidden" name="eventname" value="<%= product.title %>">
+    <% if (product.status == "open") { %>
+        
+        <button class="button-29" type="submit">Register</button>
+        
+      
+    <% } %>
+    
+    
+    <input type="hidden" name="productId" value="<%= product._id %>">
+</form>

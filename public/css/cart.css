@@ -1,0 +1,79 @@
+.cart__item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    width: 40rem;
+    max-width: 90%;
+    color: black !important;
+}
+
+body {
+    color: rgba(255, 255, 255, 0.801);
+    background-color: rgba(0, 0, 0, 0.699);
+    font-family: "Source Sans Pro", sans-serif;
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5)), url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp);
+    
+}
+
+.danger {
+    background-color: rgb(0, 255, 221) !important;
+    color: white !important;
+}
+
+.cart__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgb(179, 179, 179) !important;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26); */
+    margin-bottom: 1rem;
+}
+
+.fa-bars {
+    margin-left: 850% !important;
+    font-size: 28px;
+    color: rgb(0, 255, 221) !important;
+}
+
+@media only screen and (max-width: 500px) {
+    #logo {
+        color: rgb(0, 255, 221);
+        font-size: 18px;
+        font-weight: bold;
+    }
+    #order-btn {
+        padding: 3% !important;
+    }
+    .btn-success {
+        padding: 3% !important;
+    }
+}
+
+.fas {
+    color: rgb(0, 255, 221);
+    font-size: 28px;
+}
+
+.cart__item h1,
+.cart__item h2 {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+#order-btn {
+    padding: 1%;
+    background-color: rgb(3, 160, 29) !important;
+    color: white !important;
+    border: none !important;
+}
+
+.btn-success {
+    padding: 1%;
+    background-color: rgb(3, 160, 29) !important;
+    color: white !important;
+    border: none !important;
+    text-decoration: none !important;
+}
